@@ -1,0 +1,32 @@
+<%= form_with(model: measuring) do |form| %>
+  <% if measuring.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(measuring.errors.count, "error") %> prohibited this measuring from being saved:</h2>
+
+      <ul>
+        <% measuring.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :room, style: "display: block" %>
+    <%= form.text_field :room %>
+  </div>
+
+  <div>
+    <%= form.label :temperature, style: "display: block" %>
+    <%= form.text_field :temperature %>
+  </div>
+
+  <div>
+    <%= form.label :humidity, style: "display: block" %>
+    <%= form.number_field :humidity %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,3 @@
+<h1>Luftdaten für das Arbeitszimmer</h1>
+<%= line_chart Measuring.where(room: "arbeitszimmer").group_by_minute(:created_at, range: 0.5.day.ago..Time.now).sum(:temperature), label: "Lufttemperatur", points: false, suffix: "°C", decimal: ",", refresh: 60 %>
+<%= line_chart Measuring.where(room: "arbeitszimmer").group_by_minute(:created_at, range: 0.5.day.ago..Time.now).sum(:humidity), label: "Luftfeuchtigkeit", points: false, suffix: "%", decimal: ",", refresh: 60 %>

@@ -1,0 +1,2 @@
+<h1>Luftdaten für alle Räume</h1>
+<%= line_chart Measuring.group_by_minute(:created_at, range: 1.day.ago..Time.now).sum(:temperature), label: "Temperatur", points: false, suffix: "°C", decimal: ",", refresh: 60 %>
